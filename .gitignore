@@ -1,0 +1,5 @@
+db.sqlite3
+chromedriver*
+**/migrations
+**/__pycache__
+/about_pages/*
