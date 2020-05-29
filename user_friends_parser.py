@@ -3,7 +3,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
 from getpass import getpass
 import time
-
+from random import randint
 
 MAX_WAIT = 5
 FB_MAIL = input('Enter login: ')
@@ -68,7 +68,7 @@ def scroll_to_bottom():
 	last_height = browser.execute_script("return document.body.scrollHeight")
 	while True:
 		browser.execute_script("window.scrollTo(0, document.body.scrollHeight)")
-		time.sleep(0.3)
+		time.sleep(randint(1,3))
 		new_height = browser.execute_script("return document.body.scrollHeight")
 		if new_height == last_height:
 			break
@@ -89,6 +89,7 @@ if __name__ == '__main__':
 	authenticate()
 	if is_logged():
 		for user_url in USERS_URLS:
+			time.sleep(randint(3,10))
 			print_user_friends_links(user_url)
 		print('\n[###] Parsing finished')
 	else:

@@ -4,6 +4,7 @@ from selenium.common.exceptions import NoSuchElementException
 from getpass import getpass
 import time
 import os
+from random import randint
 from html_parser import parse_user_data_to_json
 
 MAX_WAIT = 5
@@ -78,6 +79,7 @@ if __name__ == '__main__':
 	authenticate()
 	if is_logged():
 		for user_url in USERS_URLS:
+			time.sleep(randint(3,10))
 			save_about_pages_as_html(user_url)
 			user_id = get_user_id_from_url(user_url)
 			parse_user_data_to_json(user_id)
