@@ -77,6 +77,7 @@ if __name__ == '__main__':
 	browser.get('http://www.facebook.com')
 	print('[###] Authenticating')
 	authenticate()
+	time.sleep(randint(3,5))
 	if is_logged():
 		for user_url in USERS_URLS:
 			time.sleep(randint(3,10))
